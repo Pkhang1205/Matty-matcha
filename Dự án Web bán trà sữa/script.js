@@ -26,18 +26,24 @@ addCartButtons.forEach(function (button) {
             price: productPrice
         }); 
         cartCount.textContent = cart.length
-
-       
+        renderCart(); // vẽ lại giỏ mỗi lần thêm món
     });
 });
-// PHẦN NÀY KHÔNG HIỆN THÔNG TIN TRONG GIỎ HÀNG
-if (cart.length === 0){
-     cartItemsContainer.innerHTML = "<p>Giỏ hàng đang trống.</p>";
-} 
-else {
+
+// Hiển thị giỏ hàng: đặt trong hàm để gọi lại mỗi khi giỏ thay đổi
+function renderCart() {
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = "<p>Giỏ hàng đang trống.</p>";
+        return;
+    }
     let html = '';
+    let total = 0;
     cart.forEach(function(item) {
         html += `<p>${item.name} - ${item.price.toLocaleString('vi-VN')}đ</p>`;
+        total += item.price;
     });
+    html += `<p><strong>Tổng: ${total.toLocaleString('vi-VN')}đ</strong></p>`;
     cartItemsContainer.innerHTML = html;
-} 
+}
+
+renderCart(); // hiển thị trạng thái ban đầu
