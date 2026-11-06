@@ -167,4 +167,23 @@ footer {
     margin: auto;
 }
 
+#checkout-form{
+    display: flex;
+    flex-direction: collumn;
+    gap: 10px;
+}
 
+#checkout-form input,#checkout-form textarea{
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+#checkout-form button{
+    background: #5b8c51;
+    color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    cursor: pointer;
+}
