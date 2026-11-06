@@ -1,7 +1,7 @@
 import pyodbc
 
 def get_connection():
-    connection = pyodbc.connect(
+    conn = pyodbc.connect(
         "DRIVER={ODBC Driver 18 for SQL Server};"
         "SERVER=localhost,1433;"
         "DATABASE=MattyMatcha;"
@@ -11,4 +11,4 @@ def get_connection():
         "TrustServerCertificate=yes;"
     )
 
-    return connection
+    return conn
